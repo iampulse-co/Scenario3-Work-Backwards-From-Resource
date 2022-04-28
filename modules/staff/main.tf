@@ -34,8 +34,7 @@ resource "aws_iam_role" "EMEA-Team" {
         Effect = "Allow"
         Sid    = ""
         Principal = {
-          Service = "ec2.amazonaws.com",
-          #AWS = "arn:aws:sts::947197796922:assumed-role/AWSReservedSSO_AdministratorAccess_163bbd01088aba47/kyler.middleton"
+          Service = "ec2.amazonaws.com"
         }
       }
     ]
@@ -83,7 +82,6 @@ resource "aws_iam_role_policy_attachment" "EMEA-Team-Custom-IAM" {
   policy_arn = aws_iam_policy.emea_team_policy.arn
 }
 
-
 # LATAM team role
 resource "aws_iam_role" "LATAM-Team" {
   name                 = "LATAM-Team"
@@ -103,6 +101,7 @@ resource "aws_iam_role" "LATAM-Team" {
   })
 }
 
+// NOTE FOR IAM PULSE: This access path does work, the resource tag does match
 resource "aws_iam_policy" "latam_team_policy" {
   name        = "LATAM-Team-Policy"
   description = "LATAM Team policy"
