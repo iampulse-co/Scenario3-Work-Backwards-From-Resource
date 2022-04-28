@@ -16,7 +16,6 @@ resource "aws_iam_role" "APAC-Team" {
   })
 }
 
-// NOTE FOR IAM PULSE: This policy sounds like it'd grant the access, but it does not
 resource "aws_iam_role_policy_attachment" "apac_full_rds_access_data" {
   role       = aws_iam_role.APAC-Team.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonRDSDataFullAccess"
@@ -41,8 +40,6 @@ resource "aws_iam_role" "EMEA-Team" {
   })
 }
 
-// IAM PULSE INFO: This policy reads like it should permit the rds:connect action
-// However, it doesn't. The deny matches are evaluated first, so this group isn't permitted
 resource "aws_iam_policy" "emea_team_policy" {
   name        = "EMEA-Team-Policy"
   description = "EMEA Team policy"
@@ -101,7 +98,6 @@ resource "aws_iam_role" "LATAM-Team" {
   })
 }
 
-// NOTE FOR IAM PULSE: This access path does work, the resource tag does match
 resource "aws_iam_policy" "latam_team_policy" {
   name        = "LATAM-Team-Policy"
   description = "LATAM Team policy"
