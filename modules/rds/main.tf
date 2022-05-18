@@ -5,7 +5,7 @@ variable "db_subnets_id" {}
 module "db" {
   source = "terraform-aws-modules/rds/aws"
 
-  identifier = "dev-scenario-three-rds"
+  identifier = "prod-rds"
 
   engine            = "mysql"
   engine_version    = "5.7.25"
